@@ -1,4 +1,5 @@
 # Kevin - an AI Software Engineer
+
 Kevin, an adept AI software engineer, possesses the capability to understand human prompts, deconstruct them into actionable steps, conduct pertinent research, and generate code to accomplish specified goals. Leveraging expansive language models, strategic planning algorithms, and adept web browsing skills, Kevin adeptly crafts software solutions.
 
 His mission is to transform software development practices by offering an AI programmer capable of tackling intricate coding challenges with minimal human intervention. Whether it's crafting new functionalities, rectifying bugs, or initiating projects from inception, Kevin stands ready to provide invaluable assistance.
