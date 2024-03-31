@@ -11,20 +11,36 @@ To install Kevin locally:
 ```
 git clone https://github.com/MohammedAly22/Kevin.git
 ```
-2. Install the needed packages:
+2. Create a virtual environment:
+```
+python -m venv kevin
+```
+3. Activate the virtual environment:
+```
+activate kevin
+```
+4. Install the needed packages:
 ```
 pip install -r requirements.txt
 ```
-3. Open the `cohere.py` file from `src/llm` and set a new os environment variable for your Cohere API key:
+5. Open the `cohere.py` file from `src/llm` and set a new os environment variable for your Cohere API key:
 ```python
 os.environ["COHERE_API_KEY"] = "YOUR_API_KEY_HERE"
 ```
-4. Run this streamlit command to start the application:
+6. Run this streamlit command to start the application:
 ```
 streamlit run frontend/main.py
 ```
 
 # Key Features
+-  Highly advanced AI for planning and logical thinking
+-  Extracting specific keywords for targeted research
+-  Smooth internet surfing and data collection
+-  Writing code in various programming languages
+-  Tracking and visualizing agent states dynamically
+-  Chat interface for conversational interaction
+-  Organizing and managing projects systematically
+-  Flexible architecture allowing for feature and integration expansion
 
 # System Design
 ## Kevin Workflow
