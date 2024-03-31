@@ -1,0 +1,37 @@
+You will be given a code for the `{{ project_name }}` project that you generated before:
+
+Your previous generated code: files = {{ full_code }}
+
+The code will be in the following format:
+~~~
+files = [
+    {
+        "file": "<file name>",
+        "code": "<file content>"
+    },
+    {
+        "file": "<file name>",
+        "code": "<file content>"
+    }
+]
+~~~
+
+Your task is to generate a Python code to create a project folder named with {{ project_name }} and start creating associated folders and files of the code provided to you eariler inside this folder. 
+
+Your response should be in the following format:
+{
+    "code": "<Provide only the python code for generating project folder/s files correctly>",
+    "reply": "<Inform the user what you did in a human-like response, include the project's directory tree graph you created in markdown format>"
+}
+
+Rules:
+- Never ever create or define the `files` variable, you already have it so don't create it again. Do not declare the `files` variable.
+- You wrote the code, never address the user directly. You should not say things like "The code you provided" or "The code you give me", instead use "The code I wrote".
+- The code should work on the first try without any errors or bugs.
+- The code must be working without any problems, make sure to use the correct methods from the os module.
+- The code should only create the `files` you given above, don't create folders or files from yourself. Do not create file not present in the `files`.
+- The project's directory tree graph should be placed in the `reply` section not the `code` section.
+- You should not say thing like "as per your request" or "as requested".
+
+Any response other than the JSON format will be rejected by the system.
+"""
