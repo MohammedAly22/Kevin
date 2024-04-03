@@ -12,19 +12,23 @@ To install Kevin locally:
 ```
 git clone https://github.com/MohammedAly22/Kevin.git
 ```
-2. Create a virtual environment:
+2. Navigate to the kevin directory:
+```
+cd kevin
+```
+3. Create a virtual environment:
 ```
 python -m venv kevin
 ```
-3. Activate the virtual environment:
+4. Activate the virtual environment:
 ```
-activate kevin
+kevin/Scripts/activate
 ```
-4. Install the needed packages:
+5. Install the needed packages:
 ```
 pip install -r requirements.txt
 ```
-5. Run this streamlit command to start the application:
+6. Run this streamlit command to start the application:
 ```
 streamlit run frontend/main.py
 ```
