@@ -24,11 +24,7 @@ activate kevin
 ```
 pip install -r requirements.txt
 ```
-5. Open the `cohere.py` file from `src/llm` and set a new os environment variable for your Cohere API key:
-```python
-os.environ["COHERE_API_KEY"] = "YOUR_API_KEY_HERE"
-```
-6. Run this streamlit command to start the application:
+5. Run this streamlit command to start the application:
 ```
 streamlit run frontend/main.py
 ```
