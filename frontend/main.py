@@ -56,7 +56,7 @@ def welcome_page():
     with st.container():
         st.title("Welcome, at Kevin!", anchor=False)
         st.write(
-            """Jabcob is an advanced AI software engineer that can understand high-level human instructions, break them down into steps, research relevant information, and write code to achieve the given objective. Jabcob utilizes large language models, planning and reasoning algorithms, and web browsing abilities to intelligently develop software. Jabcob aims to revolutionize the way we build software by providing an AI pair programmer who can take on complex coding tasks with minimal human guidance. Whether you need to create a new feature, fix a bug, or develop an entire project from scratch, Jabcob is here to assist you."""
+            """Kevin is an advanced AI software engineer that can understand high-level human instructions, break them down into steps, research relevant information, and write code to achieve the given objective. Kevin utilizes large language models, planning and reasoning algorithms, and web browsing abilities to intelligently develop software. \nKevin aims to revolutionize the way we build software by providing an AI pair programmer who can take on complex coding tasks with minimal human guidance. Whether you need to create a new feature, fix a bug, or develop an entire project from scratch, Kevin is here to assist you."""
         )
         btn = st.button("Start Now", on_click=page_switcher, args=(configuration_page,))
         if btn:
