@@ -45,8 +45,14 @@ streamlit run frontend/main.py
 
 # System Design
 ## Kevin Workflow
+Kevin's workflow entails several steps. Firstly, the user selects a base model, currently limited to options such as `Cohere` and `Gemini-Pro`, and provides the corresponding `API_KEY`. Subsequently, the user is directed to Kevin's workspace page where they input a prompt related to a code-assistance task. This prompt is then processed by Kevin's `DecisionTaker` agent, which determines the appropriate course of action. 
+
+In scenarios involving ordinary conversation, Kevin responds to code-related queries with pertinent answers; otherwise, users are reminded that Kevin specializes in assisting with code-related inquiries as an AI software engineer.
+
+For coding projects, Kevin initiates by generating a step-by-step plan using its `Planner` agent, visually presented in the Kevin Planner tab. The prompt's keywords are extracted utilizing the `KeywordExtractor`, then utilized by Kevin's `Researcher` agent to formulate search queries, expanding its knowledge base. Subsequently, Kevin conducts internet searches based on these queries, presenting the retrieved results in JSON format within the Kevin Browser tab. The `Coder` agent then utilizes the step-by-step plan and acquired information to write code in the Kevin Coder tab. Finally, Kevin's `Project Creator` agent generates and executes Python code to create and organize project directories and files.
 
 ## Kevin Planner
+
 
 ## Kevin Keywords Extractor
 
