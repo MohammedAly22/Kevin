@@ -6,6 +6,9 @@ His mission is to transform software development practices by offering an AI pro
 
 > **_NOTE:_**  Keivn is a simpler version of the Cognition AI's Devin, partially trying to be an open-source alternative of it. 
 
+![Kevin-Screenshot](https://github.com/MohammedAly22/Kevin/assets/90681796/246ae712-b238-46c8-9064-879e69d49943)
+
+
 # Installaion & Usage
 To install Kevin locally:
 1. Clone the repository:
