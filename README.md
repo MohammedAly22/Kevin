@@ -1,4 +1,4 @@
-# Kevin - an AI Software Engineer
+# 👩‍💻 Kevin - an AI Software Engineer
 
 Kevin, an adept AI software engineer, possesses the capability to understand human prompts, deconstruct them into actionable steps, conduct pertinent research, and generate code to accomplish specified goals. Leveraging expansive language models, strategic planning algorithms, and adept web browsing skills, Kevin adeptly crafts software solutions.
 
@@ -10,72 +10,160 @@ His mission is to transform software development practices by offering an AI pro
 
 > **_NOTE:_**  Kevins' prompt templates and project structure are inspired by [Devika](https://github.com/stitionai/devika); an actual try to clone Cognition's AI Devin.  
 
-# Installaion & Usage
+# ⚙️ Installaion & Usage
 To install Kevin locally:
-1. Clone the repository:
-```
+### 1️⃣ Clone the repository:
+```bash
 git clone https://github.com/MohammedAly22/Kevin.git
 ```
-2. Navigate to the kevin directory:
-```
+### 2️⃣ Navigate to the kevin directory:
+```bash
 cd kevin
 ```
-3. Create a virtual environment:
+### 3️⃣ Create a virtual environment:
+```bash
+python -m venv kevin-env
 ```
-python -m venv kevin
+### 4️⃣ Activate the virtual environment:
+```bash
+kevin-env/Scripts/activate  # On Windows
+source kevin-env/bin/activate  # On macOS/Linux
 ```
-4. Activate the virtual environment:
-```
-kevin/Scripts/activate
-```
-5. Install the needed packages:
-```
+### 5️⃣ Install the needed packages:
+```bash
 pip install -r requirements.txt
 ```
-6. Run this streamlit command to start the application:
-```
+### 6️⃣ Run this streamlit command to start the application:
+```bash
 streamlit run frontend/main.py
 ```
 
-# System Design
-## Kevin Workflow
-Kevin's workflow entails several steps. Firstly, the user selects a base model, currently limited to options such as `Cohere` and `Gemini-Pro`, and provides the corresponding `API_KEY`. Subsequently, the user is directed to Kevin's workspace page where they input a prompt related to a code-assistance task. This prompt is then processed by Kevin's `DecisionTaker` agent, which determines the appropriate course of action. 
+# 🛠️ System Design
+## 🚀 Kevin Workflow: From Prompt to Production
+Kevin functions as an AI-powered software engineer, capable of transforming user prompts into structured, functional codebases. Here's how Kevin's intelligent workflow unfolds:
 
-In scenarios involving ordinary conversation, Kevin responds to code-related queries with pertinent answers; otherwise, users are reminded that Kevin specializes in assisting with code-related inquiries as an AI software engineer.
+### 🔧 Step 1: Model Selection & Initialization
 
-For coding projects, Kevin initiates by generating a step-by-step plan using its `Planner` agent, visually presented in the Kevin Planner tab. The prompt's keywords are extracted utilizing the `KeywordExtractor`, then utilized by Kevin's `Researcher` agent to formulate search queries, expanding its knowledge base. Subsequently, Kevin conducts internet searches based on these queries, presenting the retrieved results in JSON format within the Kevin Browser tab. The `Coder` agent then utilizes the step-by-step plan and acquired information to write code in the Kevin Coder tab. Finally, Kevin's `Project Creator` agent generates and executes Python code to create and organize project directories and files.
+The journey begins when the user selects a base model — currently supporting advanced LLMs like `Cohere` and `Gemini-Pro`. After entering a valid `API_KEY`, the user is taken to Kevin’s **workspace dashboard** to kickstart their project.
 
-## Kevin Planner
-Kevin employs sophisticated AI planning to dissect overarching goals into manageable actions. The planning process comprises the following stages:
+### 💬 Step 2: Task Inception
 
-1. Objective Comprehension: Kevin scrutinizes the provided goal or task description to grasp the user's intentions and needs.
-2. Step Formulation: Drawing from the objective and context, Kevin devises a series of broad steps to achieve the task.
-3. Implementation: Kevin carries out each step in the plan, utilizing diverse sub-components and modules as required.
+Within the workspace, the user submits a task-related prompt, typically a code-related request. This triggers Kevin’s core logic.
 
-## Kevin Keywords Extractor
-To streamline focused research and data collection, Kevin utilizes keyword extraction methodologies. This process encompasses the following stages:
+### 🧠 Step 3: Decision Making — `DecisionTaker` Agent
 
-1. Keyword Extraction: Kevin employs the BERT (Bidirectional Encoder Representations from Transformers) model to discern crucial keywords and phrases from the preprocessed text. BERT's extensive pre-training enables it to grasp semantic nuances and comprehend the significance of words within the given context.
-2. Utilizing keywords: the `KeyBert` model is used to extract the keywords and rank them based on their relevance to the user's prompt. 
+Kevin’s `DecisionTaker` agent analyzes the prompt and determines the next course of action:
 
-By pinpointing contextually significant keywords, Kevin can channel his research endeavors effectively, retrieving pertinent information to aid in task completion.
+- For code assistance tasks, it proceeds with planning.
+- For general programming questions, it responds directly.
+- For unrelated topics, Kevin courteously reminds users of his code-focused expertise.
 
-## Kevin Researcher
-To generate helpful search queries, Kevin does the following:
-1. Utilize Contextual Keywords: Kevin considers contextual keywords previously generated from the user's prompt.
-2. Generate Search Queries: Based on the contextual keywords, Kevin creates helpful search queries that can be later used with the `googlesearch-python` library.
-3. Retrieve Web Page Content: Kevin employs the `requests` module to fetch the web pages corresponding to the generated search queries.
-4. Extract Content: Using the `beautifulsoup` library, Kevin extracts the content from the retrieved web pages for further processing.
+> 📊 **Diagram Suggestion**: *Kevin's Workflow Decision Tree*  
+> *(DecisionTaker → [Code Prompt → Planner] | [Query → Response] | [Other → Reminder])*
 
-## Kevin Coder
-Kevin's code generation module crafts code based on the outlined plan, research insights, and user specifications. This process encompasses the following stages:
+### 🗺️ Step 4: Planning — `Planner` Agent
 
-1. Code Structure Creation: Drawing from the plan and language-specific conventions, Kevin constructs the foundational structure of the code, encompassing classes, functions, and modules.
-2. Code Implementation: Kevin populates the code structure with pertinent logic, algorithms, and data manipulation instructions. It utilizes research findings, snippets from the knowledge repository, and its comprehension of programming principles to produce coherent code.
+If the task involves code generation, Kevin's `Planner` agent builds a structured, step-by-step plan, which is displayed in the **Kevin Planner** tab. This plan guides the rest of the process.
 
-Kevin's proficiency in code generation empowers him to produce functional and optimized code across various programming languages, tailored to each project's specific demands and nuances.
+### 🧾 Step 5: Keyword Extraction
 
-## Kevin Project Creator
-1. Script Generation: Following code generation, Kevin initiates the creation of a Python script utilizing the os module.
-2. Project File Organization: Kevin begins organizing the project files and folders generated previously during the coding phase of the project.
-3. Ensuring Completeness: Throughout the process, Kevin ensures the completeness of the project, aligning with its slogan: "from idea to code".
+Kevin’s `KeywordExtractor` processes the user’s prompt using:
+
+- **BERT**: Captures the semantic essence of the task.
+- **KeyBERT**: Extracts and ranks the most relevant keywords.
+
+These keywords are used to drive intelligent research.
+
+> 📊 **Diagram Suggestion**: *Keyword Extraction Pipeline*  
+> *(Prompt → BERT → KeyBERT → Top Keywords)*
+
+### 🔍 Step 6: Research — `Researcher` Agent
+
+Using the extracted keywords, Kevin performs targeted research:
+
+1. Generates smart queries via `googlesearch-python`.
+2. Fetches web pages using `requests`.
+3. Parses content using `BeautifulSoup`.
+4. Outputs results as structured JSON for downstream agents.
+
+> 📊 **Diagram Suggestion**: *Kevin Research Loop*  
+> *(Keywords → Queries → Web Pages → Parsed Content → JSON)*
+
+### 💻 Step 7: Code Generation — `Coder` Agent
+
+Kevin’s `Coder` agent writes high-quality code using the plan and research:
+
+- **Structure**: Builds classes, functions, and modules.
+- **Implementation**: Fills in the logic using research insights and programming principles.
+- **Presentation**: Displays code in the **Kevin Coder** tab.
+
+> 📊 **Diagram Suggestion**: *Code Generation Flow*  
+> *(Plan + Research + Prompt → Code Blocks)*
+
+### 🏗️ Step 8: Project Creation — `Project Creator` Agent
+
+The final stage involves organizing and finalizing the project:
+
+- Uses the `os` module to create Python scripts.
+- Automatically sets up file and folder structure.
+- Ensures everything is ready for execution or collaboration.
+
+> ✅ Kevin’s core philosophy: **"From idea to code."**
+
+---
+
+## 🧠 Kevin Planner
+
+Kevin’s `Planner` is responsible for converting big-picture goals into concrete tasks:
+
+1. **Objective Comprehension** — Interprets the prompt to understand the user's intent.
+2. **Step Formulation** — Breaks down the objective into sequential steps.
+3. **Execution Coordination** — Delegates steps to relevant agents (e.g., `Researcher`, `Coder`).
+
+---
+
+## 🗝️ Kevin Keyword Extractor
+
+The `KeywordExtractor` streamlines research by isolating meaningful keywords:
+
+- **Contextual Extraction** — Uses BERT to analyze the prompt.
+- **Relevance Ranking** — Applies KeyBERT to prioritize the most critical terms.
+
+This allows Kevin to focus his research precisely on what matters.
+
+---
+
+## 🔎 Kevin Researcher
+
+Kevin’s `Researcher` agent supports intelligent knowledge acquisition:
+
+1. Generates search queries based on extracted keywords.
+2. Uses `googlesearch-python` to find relevant pages.
+3. Fetches content with `requests`.
+4. Extracts meaningful data using `BeautifulSoup`.
+5. Structures output for the `Coder` to consume.
+
+---
+
+## 🧑‍💻 Kevin Coder
+
+The `Coder` agent transforms plans into functional code:
+
+- Designs a scalable code structure.
+- Implements the logic using research and programming knowledge.
+- Produces readable, testable, and extensible code.
+
+Supports multiple programming languages and project types.
+
+---
+
+## 🏁 Kevin Project Creator
+
+The `Project Creator` finalizes the development process:
+
+1. Generates a starter script using Python.
+2. Sets up file/folder organization.
+3. Verifies the completeness of the project environment.
+
+> 🧠 Kevin lives by the motto:  
+> **“From idea to code — intelligently, reliably, and fast.”**
